@@ -1,0 +1,34 @@
+<div class="card">
+    <img src={{this.photo.urls.small}} title={{this.photo.alt_description}}>
+
+    <div class="card-content">
+
+        <h1>{{this.photo.description || this.photo.alt_description}}</h1>
+        <p>Carregado por {{this.photo.user.username}}</p>
+
+        <div style="display: flex; justify-content: space-between;">
+
+            <!-- [routerLink]="['/photo', this.photo.user.links.html]" -->
+            <div class="user">
+                <img class="avatar" src={{this.photo.user.profile_image.small}} title={{this.photo.user.username}}>
+                <span>{{this.photo.user.username}}</span>
+            </div>
+
+            <a class="btn-download" (click)="download_location(this.photo.links.download)" id="btn-down-here">
+                <i class="material-icons">file_download</i>
+                <span>Download</span>
+            </a>
+
+        </div>
+
+        <!-- <a href="javascript:void(0);" href={{this.photo.links.download}}>Download</a> -->
+
+    </div>
+
+</div>
+
+
+<div class="list-card">
+    <p>Mais como este</p>
+    <app-gallery [list]="this.item"></app-gallery>
+</div>

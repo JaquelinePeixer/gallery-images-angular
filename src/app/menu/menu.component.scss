@@ -1,0 +1,62 @@
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+
+    .menu-superior {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        padding-bottom: 0;
+    }
+}
+
+.list-category {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: var(--gray-600);
+   
+
+    .card-category {
+        display: flex;
+        align-items: center;
+        padding: 15px 25px;
+        margin: 0;
+        color: var(--text-color-300);
+        font-size: 1rem;
+
+        &:hover {
+            color: var(--text-color-400);
+            cursor: pointer;
+        }
+    }
+}
+
+.user-github {
+    color: var(--text-color-300);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        --px: 30px;
+        border-radius: 50%;
+        width: var(--px);
+        height: var(--px);
+        object-fit: cover;
+    }
+
+    &:hover {
+        color: var(--text-color-400);
+    }
+}

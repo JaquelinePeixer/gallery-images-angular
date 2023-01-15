@@ -1,0 +1,18 @@
+<div class="gallery-images">
+    <div class=" link-images" *ngFor="let data of this.list;">
+        <a [routerLink]="['/photo', data.id]" class="card-img">
+            <img class="img-photo" src={{data.urls.small_s3}} alt={{data.alt_description}}>
+
+            <div class="card-hover">
+                <div class="user">
+                    <img class="avatar" src={{data.user.profile_image.small}} alt={{data.user.username}}>
+                    <span>{{data.user.username}}</span>
+                </div>
+
+                <button class="btn-download">
+                    <i class="material-icons">file_download</i>
+                </button>
+            </div>
+        </a>
+    </div>
+</div>

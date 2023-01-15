@@ -1,0 +1,48 @@
+.card-search {
+    background-image: url('https://images.unsplash.com/photo-1673725437336-e2f3307cebbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzOTgxNjl8MHwxfGFsbHx8fHx8fHx8fDE2NzM3ODUzMTc&ixlib=rb-4.0.3&q=80&w=1080');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    padding: 120px;
+    text-align: center;
+    margin-bottom: 25px;
+
+    .campo-input {
+        width: 100%;
+        background-color: var(--gray-400);
+        border: 1.5px solid var(--gray-600);
+        border-radius: 999px;
+        font-size: 1rem;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+
+        &::before {
+            font-family: 'Material Icons';
+            content: '\e8b6';
+            color: var(--text-color-300);
+            font-size: 24px;
+        }
+
+        input {
+            width: 100%;
+            color: var(--text-color-400);
+            border: 0;
+            background-color: transparent;
+            outline: none;    font-size: 1rem;
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: var(--text-color-300);
+                font-family: 'Roboto', sans-serif;
+
+            }
+
+        }
+    }
+}

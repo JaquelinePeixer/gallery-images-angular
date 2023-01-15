@@ -1,0 +1,42 @@
+.card {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: auto;
+    margin: 50px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 65rem;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    color: var(--white);
+
+    img.avatar {
+        --px: 30px;
+        border-radius: 50%;
+        width: var(--px);
+        height: var(--px);
+        object-fit: cover;
+    }
+
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.list-card {
+    p {
+        text-align: center;
+        font-weight: 500;
+    }
+}

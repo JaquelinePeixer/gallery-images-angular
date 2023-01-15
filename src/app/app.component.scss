@@ -1,0 +1,21 @@
+.rodape {
+    background-color: var(--azul-700);
+    color: var(--white);
+    padding: 15px;
+    text-align: center;
+    margin-top: 3rem;
+
+    p {
+        font-size: 0.7rem;
+        margin-bottom: 0;
+    }
+
+    a {
+        color: var(--white);
+        font-size: 0.7rem;
+
+        &:hover {
+            color: var(--azul-400);
+        }
+    }
+}

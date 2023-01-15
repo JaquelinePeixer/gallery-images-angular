@@ -1,7 +1,10 @@
 # Gallery Images Angular
 
-Projeto de portfolio com o objetivo de apresentar uma galeria de imagens
+O projeto tem o objetivo se ser um site que apresenta uma listagem de fotos a qual podem ser feito download
 
+.
+.
+.
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.

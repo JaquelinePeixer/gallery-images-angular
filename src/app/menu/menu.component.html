@@ -1,0 +1,19 @@
+<nav class="menu">
+
+  <div class="menu-superior">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img src="../assets/logo.svg">
+    </a>
+
+    <a href={{this.userGithub.html_url}} title={{this.userGithub.bio}} class="user-github" target="_blank">
+      <img src={{this.userGithub.avatar_url}}>
+      {{this.userGithub.name}}
+    </a>
+
+  </div>
+
+  <div class="list-category">
+    <a class="card-category" *ngFor="let data of this.listCategory;" (click)="getListImage(data.title)"> {{data.title}} </a>
+  </div>
+
+</nav>

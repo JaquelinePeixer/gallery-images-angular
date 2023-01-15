@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+    --azul-400: #3DB2FF;
+    --azul-700: #0E4360;
+
+    --text-color-300: #767676;
+    --text-color-400: #111;    
+
+    --white: #fff;
+
+    --gray-400: #F8F9FA;
+    --gray-500: #F1F1F1;
+    --gray-600: #E0E0E0;
+
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body{
+    font-size: 14px;
+    color: var(--text-color-400);
+    background-color: #f1f1f1;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+h1{
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 20px;
+}
+
+
+p{
+    font-size: 1.5rem;
+}
+
+a{
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--text-color-400);
+    font-weight: 400;
+
+    &:hover{
+        color: var(--azul-400);
+    }
+}
+
+.btn-download {
+    border: 0;
+    background-color: var(--azul-400);
+    color: var(--azul-700);
+    border-radius: 21px;
+    padding: 5px 16px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: var(--azul-700);
+        color: var(--azul-400);
+    }
+
+}
+
