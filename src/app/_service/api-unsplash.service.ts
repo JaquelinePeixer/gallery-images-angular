@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiUnsplashService {
 
-  per_page: number = 30
+  per_page: number = 8
 
   private ClientId: string = `client_id=${environment.AccessKeyUnsplash}`
 

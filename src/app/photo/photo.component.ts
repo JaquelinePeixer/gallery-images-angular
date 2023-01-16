@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MenuComponent } from '../menu/menu.component';
 import { ApiUnsplashService } from '../_service/api-unsplash.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { ApiUnsplashService } from '../_service/api-unsplash.service';
 })
 export class PhotoComponent {
 
-  @Input() list: any
+  // @Input() list: any
+
+  @Output() itemSearchMenu: EventEmitter<string> = new EventEmitter()
+  @ViewChild(MenuComponent) titleSearch: any
 
   item: any
   userId: any
@@ -30,25 +34,26 @@ export class PhotoComponent {
 
   }
 
+  search() {
+    // this.apiUnsplash.getSearchImages(this.termSearch).subscribe(data => {
+    //   this.item = data
+    //   console.log('this.item', this.item)
+    // })
+
+  }
+
+
   getImages() {
     this.apiUnsplash.getListImages().subscribe(data => {
       this.item = data
-
-      console.log('this.item', this.item)
     })
   }
-
 
   getPhoto() {
     this.apiUnsplash.getPagePhoto(this.userId).subscribe(data => {
       this.photo = data
-
-      console.log('this.photo', this.photo)
     })
   }
-
-
-
 
   download_location(url: any) {
     const id = 'rLEIvv0KFdY'

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiGithubService } from '../_service/api-github.service';
 import { ApiUnsplashService } from '../_service/api-unsplash.service';
@@ -15,6 +15,9 @@ export class MenuComponent {
   listCategory: any
   userGithub: any
 
+  @Input() titleSearch: any;
+  @Output() messageEvent = new EventEmitter<string>();
+
   constructor(
     private apiGithub: ApiGithubService,
     private apiUnsplash: ApiUnsplashService,
@@ -26,18 +29,8 @@ export class MenuComponent {
 
   }
 
-  public itemCategory: any
-
   getListImage(title: string) {
-
-    this.router.navigate(['/home'], { queryParams: { itemCategory: title } });
-
-    debugger
-
-
-    // this.apiGithub.getUserGithub().subscribe(data => {
-    //   this.userGithub = data
-    // })
+    this.messageEvent.emit(title)
   }
 
   getUser() {

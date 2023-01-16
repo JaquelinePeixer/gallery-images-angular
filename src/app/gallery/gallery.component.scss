@@ -78,8 +78,34 @@
     visibility: visible;
 }
 
-@media screen and (max-width: 742px) {
+
+// 1025px — 1200px: desktops, telas grandes
+// 1201px e acima —  telas muito grandes, TVs
+
+
+// iPads, tablets, telas pequenas, laptops
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+    .gallery-images {
+        column-count: 3;
+    }
+
+    .card-hover {
+        display: none;
+    }
+}
+
+// dispositivos móveis
+@media screen and (max-width: 480px) {
     .gallery-images {
         column-count: 2;
     }
+
+    .card-search {
+        padding: 80px 27px;
+    }
+
+    .card-hover {
+        display: none;
+    }
+
 }

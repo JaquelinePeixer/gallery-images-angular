@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { PhotoComponent } from './photo/photo.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MenuComponent } from './menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { MenuComponent } from './menu/menu.component';
     HomeComponent,
     PhotoComponent,
     GalleryComponent,
-    MenuComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

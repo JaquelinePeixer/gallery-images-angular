@@ -1,4 +1,4 @@
-.card {
+.card-photo-selecionado {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: auto;
@@ -6,6 +6,9 @@
     border-radius: 10px;
     overflow: hidden;
     width: 65rem;
+
+    background-color: var(--white);
+    border: 1px solid var(--gray-600);
 
     img {
         width: 100%;
@@ -18,7 +21,7 @@
     flex-direction: row;
     gap: 6px;
     align-items: center;
-    color: var(--white);
+    color: var(--text-color-400);
 
     img.avatar {
         --px: 30px;
@@ -26,17 +29,76 @@
         width: var(--px);
         height: var(--px);
         object-fit: cover;
+        border: 1px solid var(--gray-600);
     }
 
 }
 
 .card-content {
     padding: 30px;
+
+    .item-links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
 }
 
 .list-card {
     p {
         text-align: center;
         font-weight: 500;
+    }
+}
+
+// desktops, telas grandes
+@media screen and (max-width: 1200px) and (min-width: 1025px) {
+    .card-photo-selecionado {
+        width: 90%;
+
+        .card-content {
+            h1 {
+                font-size: 2rem;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+// iPads, tablets, telas pequenas, laptops
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+    .card-photo-selecionado {
+        width: 90%;
+        grid-template-rows: auto;
+        grid-template-columns: none;
+
+        .card-content {
+            // padding: 20px;
+
+            h1 {
+                font-size: 2rem;
+                line-height: 1;
+            }
+        }
+
+    }
+}
+
+// dispositivos móveis
+@media screen and (max-width: 480px) {
+    .card-photo-selecionado {
+        width: 90%;
+        grid-template-rows: auto;
+        grid-template-columns: none;
+
+
+        .card-content {
+            padding: 20px;
+
+            h1 {
+                font-size: 2rem;
+                line-height: 1;
+            }
+        }
     }
 }

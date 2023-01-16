@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { MenuComponent } from '../menu/menu.component';
 import { ApiUnsplashService } from '../_service/api-unsplash.service';
 
 @Component({
@@ -9,31 +9,30 @@ import { ApiUnsplashService } from '../_service/api-unsplash.service';
 })
 export class HomeComponent {
 
-  // receber um input com o nome da categoria e gerar uma nova lista de search
-
   item: any
-  listItem: any;
+  termSearch: any
+
+  @Output() itemSearchMenu: EventEmitter<string> = new EventEmitter()
+  @ViewChild(MenuComponent) titleSearch: any
 
   constructor(
-    private apiUnsplash: ApiUnsplashService,
-    private actRoute: ActivatedRoute
-
+    private apiUnsplash: ApiUnsplashService
   ) {
     this.getImages()
 
+  }
 
-    this.listItem = this.actRoute.snapshot.paramMap.get("id");
-
-
+  search() {
+    // Fazer funcionar a atualização da galeria na função  search()
+    this.apiUnsplash.getSearchImages(this.termSearch).subscribe(data => {
+      this.item = data
+    })
   }
 
   getImages() {
     this.apiUnsplash.getListImages().subscribe(data => {
       this.item = data
-
-      console.log('this.item', this.item)
     })
   }
-
 
 }

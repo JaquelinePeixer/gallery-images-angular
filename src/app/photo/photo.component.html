@@ -1,4 +1,6 @@
-<div class="card">
+<app-menu [titleSearch]="itemSearchMenu"></app-menu>
+
+<div class="card-photo-selecionado">
     <img src={{this.photo.urls.small}} title={{this.photo.alt_description}}>
 
     <div class="card-content">
@@ -6,23 +8,20 @@
         <h1>{{this.photo.description || this.photo.alt_description}}</h1>
         <p>Carregado por {{this.photo.user.username}}</p>
 
-        <div style="display: flex; justify-content: space-between;">
-
-            <!-- [routerLink]="['/photo', this.photo.user.links.html]" -->
+        <div class="item-links">
             <div class="user">
                 <img class="avatar" src={{this.photo.user.profile_image.small}} title={{this.photo.user.username}}>
                 <span>{{this.photo.user.username}}</span>
             </div>
 
-            <a class="btn-download" (click)="download_location(this.photo.links.download)" id="btn-down-here">
+            <!-- (click)="download_location(this.photo.links.download)" -->
+            <a class="btn-download" href={{this.photo.links.download}}  id="btn-down-here" target="_blank">
                 <i class="material-icons">file_download</i>
                 <span>Download</span>
             </a>
 
         </div>
-
-        <!-- <a href="javascript:void(0);" href={{this.photo.links.download}}>Download</a> -->
-
+        
     </div>
 
 </div>

@@ -1,15 +1,35 @@
-<div class="card-search" >
+<app-menu [titleSearch]="itemSearchMenu"></app-menu>
+
+<div class="card-search">
     <!-- TOTmz2mrPhQ -->
     <div class="campo-input">
-        <input type="text" name="" id="" placeholder="Pesquise a foto">
+        <button type="submit" (click)="search()" title="Pesquisar o termo"></button>
+
+        <input type="text" placeholder="Pesquise o termo" [(ngModel)]="termSearch">
     </div>
 </div>
 
+<!-- <app-gallery [list]="this.item"></app-gallery> -->
+<div class="gallery-images">
+    <div class=" link-images" *ngFor="let data of this.item;">
+        <a [routerLink]="['/photo', data.id]" class="card-img">
+            <img class="img-photo" src={{data.urls.small_s3}} alt={{data.alt_description}}>
 
+            <div class="card-hover">
+                <div class="user">
+                    <img class="avatar" src={{data.user.profile_image.small}} alt={{data.user.username}}>
+                    <span>{{data.user.username}}</span>
+                </div>
 
-<app-gallery [list]="this.item"></app-gallery>
+                <button class="btn-download">
+                    <i class="material-icons">file_download</i>
+                </button>
+            </div>
+        </a>
+    </div>
+</div>
 
-<nav aria-label="Page navigation example">
+<!-- <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
         <li class="page-item ">
             <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -23,4 +43,4 @@
             <a class="page-link" href="#">Next</a>
         </li>
     </ul>
-</nav>
+</nav> -->
