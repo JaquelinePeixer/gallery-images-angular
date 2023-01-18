@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.apiUnsplash.getListImages().subscribe(data => {
       this.item = data
-      console.log(this.item)
     })
   }
 

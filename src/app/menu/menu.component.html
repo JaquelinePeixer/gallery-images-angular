@@ -1,11 +1,11 @@
 <nav class="menu">
   <div class="menu-superior">
     <a class="navbar-brand" [routerLink]="['/']" aria-label="Link para a página inicial">
-      <img src="../assets/logo.svg" title="Logomarca do site, escrito Download Image">
+      <img src="../assets/logo.svg" aria-label="Logomarca do site, escrito Download Image">
     </a>
 
     <a href={{this.userGithub.html_url}} title={{this.userGithub.bio}} class="user-github" target="_blank" aria-label="Link para o Github da autora">
-      <img src={{this.userGithub.avatar_url}} title="Imagem de perfil">
+      <img src={{this.userGithub.avatar_url}} aria-label="Imagem de perfil">
       {{this.userGithub.name}}
     </a>
   </div>
