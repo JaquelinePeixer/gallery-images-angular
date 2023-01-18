@@ -19,3 +19,13 @@
         }
     }
 }
+
+// dispositivos móveis
+@media screen and (max-width: 480px) {
+    .rodape {
+        p,
+        a {
+            font-size: 0.8rem;
+        }
+    }
+}

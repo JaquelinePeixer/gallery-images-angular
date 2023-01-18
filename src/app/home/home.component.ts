@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 import { ApiUnsplashService } from '../_service/api-unsplash.service';
 
@@ -7,31 +8,34 @@ import { ApiUnsplashService } from '../_service/api-unsplash.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  item: any
+  item: any = []
   termSearch: any
+
+  routeMenu: any
 
   @Output() itemSearchMenu: EventEmitter<string> = new EventEmitter()
   @ViewChild(MenuComponent) titleSearch: any
 
   constructor(
     private apiUnsplash: ApiUnsplashService
-  ) {
-    this.getImages()
+  ) {  }
 
-  }
-
-  search() {
-    // Fazer funcionar a atualização da galeria na função  search()
-    this.apiUnsplash.getSearchImages(this.termSearch).subscribe(data => {
+  ngOnInit() {
+    this.apiUnsplash.getListImages().subscribe(data => {
       this.item = data
+      console.log(this.item)
     })
   }
 
-  getImages() {
-    this.apiUnsplash.getListImages().subscribe(data => {
-      this.item = data
+  search(search: any) {
+    this.apiUnsplash.getSearchImages(search).subscribe(data => {
+      this.item = data.results
+
+      this.item.map((item: any, i: number) => {
+        this.item[i] = item.cover_photo
+      })
     })
   }
 

@@ -1,33 +1,15 @@
-<app-menu [titleSearch]="itemSearchMenu"></app-menu>
+<app-menu (titleSearch)="search($event)"></app-menu>
 
 <div class="card-search">
     <!-- TOTmz2mrPhQ -->
     <div class="campo-input">
-        <button type="submit" (click)="search()" title="Pesquisar o termo"></button>
+        <button type="submit" (click)="search(this.termSearch)" title="Pesquisar o termo"></button>
 
         <input type="text" placeholder="Pesquise o termo" [(ngModel)]="termSearch">
     </div>
 </div>
 
-<!-- <app-gallery [list]="this.item"></app-gallery> -->
-<div class="gallery-images">
-    <div class=" link-images" *ngFor="let data of this.item;">
-        <a [routerLink]="['/photo', data.id]" class="card-img">
-            <img class="img-photo" src={{data.urls.small_s3}} alt={{data.alt_description}}>
-
-            <div class="card-hover">
-                <div class="user">
-                    <img class="avatar" src={{data.user.profile_image.small}} alt={{data.user.username}}>
-                    <span>{{data.user.username}}</span>
-                </div>
-
-                <button class="btn-download">
-                    <i class="material-icons">file_download</i>
-                </button>
-            </div>
-        </a>
-    </div>
-</div>
+<app-gallery [list]="this.item"></app-gallery>
 
 <!-- <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">

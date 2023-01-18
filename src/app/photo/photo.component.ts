@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 import { ApiUnsplashService } from '../_service/api-unsplash.service';
 
@@ -8,9 +8,7 @@ import { ApiUnsplashService } from '../_service/api-unsplash.service';
   templateUrl: './photo.component.html',
   styleUrls: ['./photo.component.scss']
 })
-export class PhotoComponent {
-
-  // @Input() list: any
+export class PhotoComponent implements OnInit {
 
   @Output() itemSearchMenu: EventEmitter<string> = new EventEmitter()
   @ViewChild(MenuComponent) titleSearch: any
@@ -19,32 +17,41 @@ export class PhotoComponent {
   userId: any
   photo: any
 
-  dow: any
-
-  urlDownload: any
-
   constructor(
     private apiUnsplash: ApiUnsplashService,
-    private route: ActivatedRoute
-  ) {
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
-    this.route.params.subscribe(params => this.userId = params['id'])
-    this.getImages()
-    this.getPhoto()
-
-  }
-
-  search() {
-    // this.apiUnsplash.getSearchImages(this.termSearch).subscribe(data => {
-    //   this.item = data
-    //   console.log('this.item', this.item)
-    // })
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.userId = params['id']
+      this.getPhoto();
+    });
 
   }
 
+  goHome(search: any) {
+    this.router.navigate(["/"], {
+      queryParams: {
+        s: search
+      }
+    });
+  }
 
-  getImages() {
-    this.apiUnsplash.getListImages().subscribe(data => {
+  search(search: any) {
+    this.apiUnsplash.getSearchImages(search).subscribe(data => {
+      this.item = data.results
+
+      this.item.map((item: any, i: number) => {
+        this.item[i] = item.cover_photo
+      })
+
+    })
+  }
+
+  getImages(username: string) {
+    this.apiUnsplash.getUserPhotos(username).subscribe(data => {
       this.item = data
     })
   }
@@ -52,12 +59,8 @@ export class PhotoComponent {
   getPhoto() {
     this.apiUnsplash.getPagePhoto(this.userId).subscribe(data => {
       this.photo = data
+      this.getImages(this.photo.user.username)
     })
   }
-
-  download_location(url: any) {
-    const id = 'rLEIvv0KFdY'
-  }
-
 
 }

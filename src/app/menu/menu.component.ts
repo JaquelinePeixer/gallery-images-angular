@@ -10,18 +10,14 @@ import { ApiUnsplashService } from '../_service/api-unsplash.service';
 })
 export class MenuComponent {
 
-  // output par aenviar o nome da categoria
-
   listCategory: any
   userGithub: any
 
-  @Input() titleSearch: any;
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() titleSearch = new EventEmitter<string>();
 
   constructor(
     private apiGithub: ApiGithubService,
-    private apiUnsplash: ApiUnsplashService,
-    private router: Router
+    private apiUnsplash: ApiUnsplashService
 
   ) {
     this.getUser()
@@ -30,17 +26,17 @@ export class MenuComponent {
   }
 
   getListImage(title: string) {
-    this.messageEvent.emit(title)
+    this.titleSearch.emit(title)
   }
 
-  getUser() {
-    this.apiGithub.getUserGithub().subscribe(data => {
+  async getUser() {
+    await this.apiGithub.getUserGithub().subscribe(data => {
       this.userGithub = data
     })
   }
 
-  getCategory() {
-    this.apiUnsplash.getTopics(8).subscribe(data => {
+  async getCategory() {
+    await this.apiUnsplash.getTopics(8).subscribe(data => {
       this.listCategory = data
     })
   }

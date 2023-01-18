@@ -69,13 +69,11 @@ a {
 
 }
 
-
-
 // desktops, telas grandes
-@media screen and (max-width:1200px) and (min-width:1025px) {}
+@media screen and (min-width:1025px) and (max-width:1200px) {}
 
 // iPads, tablets, telas pequenas, laptops
-@media screen and (max-width: 1024px) and (min-width: 481px) {}
+@media screen and (min-width: 481px) and (max-width: 1024px) {}
 
 // dispositivos móveis
 @media screen and (max-width: 480px) {

@@ -1,6 +1,6 @@
 .gallery-images {
     margin: 0 auto;
-    column-count: 4;
+    column-count: 5;
     column-gap: 20px;
     padding: 10px;
 
@@ -9,6 +9,7 @@
         display: inline-block;
         background-color: transparent;
         border-color: transparent;
+        width: 100%;
 
         .img-photo {
             width: 100%;
@@ -78,30 +79,39 @@
     visibility: visible;
 }
 
-
-// 1025px — 1200px: desktops, telas grandes
-// 1201px e acima —  telas muito grandes, TVs
-
+// desktops, telas grandes
+@media screen and (min-width:1025px) and (max-width:1200px) {
+    .gallery-images {
+        column-count: 4;
+    }
+}
 
 // iPads, tablets, telas pequenas, laptops
-@media screen and (max-width: 1024px) and (min-width: 481px) {
+@media screen and (min-width: 481px) and (max-width: 1024px) {
     .gallery-images {
         column-count: 3;
     }
 
-    .card-hover {
-        display: none;
+    .gallery-images {
+        .link-images {
+            .user {
+                img.avatar {
+                    --px: 20px;
+                }
+
+                span {
+                    font-size: 0.8rem;
+                }
+            }
+        }
     }
+
 }
 
 // dispositivos móveis
 @media screen and (max-width: 480px) {
     .gallery-images {
         column-count: 2;
-    }
-
-    .card-search {
-        padding: 80px 27px;
     }
 
     .card-hover {

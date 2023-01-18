@@ -1,17 +1,16 @@
 <nav class="menu">
   <div class="menu-superior">
-    <a class="navbar-brand" [routerLink]="['/']">
-      <img src="../assets/logo.svg">
+    <a class="navbar-brand" [routerLink]="['/']" aria-label="Link para a página inicial">
+      <img src="../assets/logo.svg" title="Logomarca do site, escrito Download Image">
     </a>
 
-    <a href={{this.userGithub.html_url}} title={{this.userGithub.bio}} class="user-github" target="_blank">
-      <img src={{this.userGithub.avatar_url}}>
+    <a href={{this.userGithub.html_url}} title={{this.userGithub.bio}} class="user-github" target="_blank" aria-label="Link para o Github da autora">
+      <img src={{this.userGithub.avatar_url}} title="Imagem de perfil">
       {{this.userGithub.name}}
     </a>
   </div>
 
   <div class="list-category">
-    <a class="card-category" *ngFor="let data of this.listCategory;" (click)="getListImage(data.title)"> {{data.title}}
-    </a>
+    <a class="card-category" *ngFor="let data of this.listCategory;" (click)="getListImage(data.title)" aria-label="Filtrar as imagems para o termo"> {{data.title}} </a>
   </div>
 </nav>
